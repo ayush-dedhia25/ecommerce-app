@@ -1,0 +1,72 @@
+{
+  "cSpell.words": [
+    "cloudinary",
+    "clsx",
+    "ecommerce",
+    "headlessui",
+    "lucide",
+    "tailwindcss"
+  ],
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          // --- ReactTypescript ---
+          "storage.type.function.tsx",
+          "keyword.control.flow.tsx",
+          "variable.parameter.tsx",
+          "keyword.control.import.tsx",
+          "keyword.control.from.tsx",
+          "entity.other.attribute-name.tsx",
+          "meta.export.default.tsx",
+          "keyword.control.export.tsx",
+          "meta.type.annotation.tsx",
+          "keyword.control.conditional.tsx",
+          "meta.embedded.expression.tsx",
+          "storage.type.tsx",
+          "storage.type.type.tsx",
+          "storage.modifier.async.tsx",
+          "keyword.control.trycatch.tsx",
+          "keyword.operator.expression.typeof.tsx",
+          "storage.type.interface.tsx",
+
+          // --- TypeScript ---
+          "storage.type.function.ts",
+          "keyword.control.flow.ts",
+          "variable.parameter.ts",
+          "keyword.control.import.ts",
+          "keyword.control.from.ts",
+          "entity.other.attribute-name.ts",
+          "meta.export.default.ts",
+          "meta.type.annotation.ts",
+          "keyword.control.conditional.ts",
+          "meta.embedded.expression.ts",
+          "storage.type.ts",
+          "storage.type.type.tx",
+          "entity.name.function.member",
+          "keyword.control.export.ts",
+          "storage.modifier.async.ts",
+          "keyword.control.trycatch.ts",
+          "variable.other.property.ts",
+          "new.expr.ts",
+          "storage.type.type.ts",
+
+          // --- Prisma ---
+          "storage.type.config.prisma",
+          "storage.type.model.prisma",
+          "support.type.primitive.prisma",
+          "variable.language.relations.prisma"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true,
+  "editor.lineHeight": 1.7,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
