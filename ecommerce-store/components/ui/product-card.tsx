@@ -4,6 +4,7 @@ import { Expand, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+import useCartStore from "@/hooks/use-cart";
 import usePreviewModalStore from "@/hooks/use-preview-modal";
 import type { Product } from "@/types";
 
@@ -17,6 +18,7 @@ type ProductCardProps = {
 function ProductCard({ data }: ProductCardProps) {
   const router = useRouter();
   const previewModal = usePreviewModalStore();
+  const cart = useCartStore();
 
   const handleClick = () => {
     router.push(`/product/${data.id}`);
@@ -27,20 +29,25 @@ function ProductCard({ data }: ProductCardProps) {
     previewModal.onOpen(data);
   };
 
+  const onAddToCart: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+    cart.addItem(data);
+  };
+
   return (
     <div
       onClick={handleClick}
-      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
+      className="p-3 space-y-4 bg-white border cursor-pointer group rounded-xl"
     >
       {/* Images and Actions */}
-      <div className="relative aspect-square rounded-xl bg-gray-100">
+      <div className="relative bg-gray-100 aspect-square rounded-xl">
         <Image
           src={data.images[0].url}
           alt="Image"
-          className="aspect-square object-cover rounded-md"
+          className="object-cover rounded-md aspect-square"
           fill
         />
-        <div className="opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
+        <div className="absolute w-full px-6 transition opacity-0 group-hover:opacity-100 bottom-5">
           <div className="flex justify-center gap-x-6">
             <IconButton
               icon={<Expand size={20} />}
@@ -49,7 +56,7 @@ function ProductCard({ data }: ProductCardProps) {
             />
             <IconButton
               icon={<ShoppingCart size={20} />}
-              onClick={() => {}}
+              onClick={onAddToCart}
               className="text-gray-600"
             />
           </div>
@@ -58,7 +65,7 @@ function ProductCard({ data }: ProductCardProps) {
 
       {/* Description */}
       <div>
-        <p className="text-semibold text-lg">{data.name}</p>
+        <p className="text-lg text-semibold">{data.name}</p>
         <p className="text-sm text-gray-500">{data.category.name}</p>
       </div>
 
