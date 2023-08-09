@@ -9,9 +9,7 @@ import Button from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCartStore from "@/hooks/use-cart";
 
-type SummaryProps = {};
-
-function Summary({}: SummaryProps) {
+function Summary() {
   const { items, removeAll } = useCartStore((state) => ({
     items: state.items,
     removeAll: state.removeAll,
@@ -50,7 +48,11 @@ function Summary({}: SummaryProps) {
           <Currency value={totalPrice} />
         </div>
       </div>
-      <Button className="w-full mt-6" onClick={onCheckout}>
+      <Button
+        className="w-full mt-6"
+        onClick={onCheckout}
+        disabled={items.length === 0}
+      >
         Checkout
       </Button>
     </div>
